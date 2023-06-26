@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Raspberry Pi Monitoring Dashboard</title>
+    <style>
+      /* Set the font family and background color */
+      body {
+        font-family: 'Helvetica Neue', sans-serif;
+        background-color: #515a5a ;
+        color: white;
+      }
+
+      /* Center the dashboard */
+      #monitoring-dashboard {
+        max-width: 675px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: repeat(5,1fr);
+        grid-gap: 20px;
+        padding: 20px;
+        background-color:  #1d8348 ;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        justify-content: start;
+      }
+
+      /* Style the iframes */
+      #monitoring-dashboard iframe {
+        border: none;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Style the h1 */
+      h1 {
+        text-align: center;
+        color: #f0f3f4;
+        text-shadow: 0 1px 1px rgba(0,0,0,.2), 
+                     0 2px 2px rgba(0,0,0,.2), 
+                     0 4px 4px rgba(0,0,0,.2), 
+                     0 8px 8px rgba(0,0,0,.2);
+        transform: translateZ(0) rotateX(30deg);
+        perspective: 100px;
+        margin-top: 20px;
+        font-size: 3em;
+        animation: moveH1 5s ease-in-out infinite;
+      }
+
+      /* Keyframes for moving h1 */
+      @keyframes moveH1 {
+        0% {
+          transform: translateX(0);
+        }
+        50% {
+          transform: translateX(-10px);
+        }
+        100% {
+          transform: translateX(0);
+        }
+      }
+
+      /* Pi logo images */
+      .pi-logo {
+        position: absolute;
+        top: 10px;
+        width: 50px;
+        height: 50px;
+      }
+
+      .pi-logo.top-left {
+        left: 10px;
+      }
+
+      .pi-logo.top-right {
+        right: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <img class="pi-logo top-left" src="https://www.raspberrypi.org/app/uploads/2018/03/RPi-Logo-Reg-SCREEN.png" alt="Raspberry Pi logo">
+    <img class="pi-logo top-right" src="https://www.raspberrypi.org/app/uploads/2018/03/RPi-Logo-Reg-SCREEN.png" alt="Raspberry Pi logo">
+    <h1>Ethan's Super Computer Cockpit</h1>
+
+    <div id="monitoring-dashboard">
+      <!-- Add 10 iframes for the Glances monitors -->
+      <iframe src="http://192.168.0.58:61208" frameborder="0" height="465" width="326" ></iframe>
+      <iframe src="http://192.168.0.69:61208 " frameborder="0" height="465" width="326" ></iframe>
+      <iframe src="http://192.168.0.70:61208 " frameborder="0" height="465" width="326" ></iframe>
+      <iframe src="http://192.168.0.73:61208 " frameborder="0" height="465" width="326" ></iframe>
+      <iframe src="http://192.168.0.76:61208 " frameborder="0" height="465" width="326" ></iframe>
+      <iframe src="http://192.168.0.65:61208 " frameborder="0" height="465" width="326" ></iframe>
+      <iframe src="http://192.168.0.100:61208 " frameborder="0" height="465" width="326"  ></iframe>
+      <iframe src="http://192.168.0.101:61208 " frameborder="0" height="465" width="326"  ></iframe>
+      <iframe src="http://192.168.0.102:61208 " frameborder="0" height="465" width="326" ></iframe>
+      <iframe src="http://192.168.0.103:61208 " frameborder="0" height="465" width="326"  ></iframe>
+    </div>
+
+    <script>
+//      // Set the base URL for the Glances API
+//      const baseUrl = 'http://';
+////
+//
+//      // Loop through the iframes and set the source URLs to display the Glances monitors
+//      const iframes = document.querySelectorAll('#monitoring-dashboard iframe');
+//      for (let i = 0; i < iframes.length; i++) {
+//        // Set the source URL for the iframe
+//        const hostname = `p${i + 1 -1}`;
+//        const url = `${baseUrl}/${hostname}:61208`;
+//        iframes[i].setAttribute('src', url);
+//
+        // Set the height of the iframe to match the content height
+ //       iframes[i].addEventListener('load', function() {
+   //       const iframe = this;
+     //     const contentHeight = iframe.contentWindow.document.body.scrollHeight;
+       //   iframe.style.height = `${contentHeight}px`;
+     //   });
+   //   }
+    </script>
+  </body>
+</html>
+
+
